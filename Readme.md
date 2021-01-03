@@ -19,18 +19,18 @@ The idea behind this is to
    5. The same or different jenkins job can be used to run the sql statement (insert).
 
 The load_google_trends_to_redshift.py does the following tasks:
-  a. extracting the google trends data for interest over time and interest by region into csv files
-  b. loading the csv files to s3
-  c. loading the data from s3 to redshift( raw schema ) using COPY Command.
+  1. extracting the google trends data for interest over time and interest by region into csv files
+  2. loading the csv files to s3
+  3. loading the data from s3 to redshift( raw schema ) using COPY Command.
   
 The redshift_db_code.sql does the following:
-  a. insert statements to load the data into bi schema. 
+  1. insert statements to load the data into bi schema. 
   
 Things not done as part of this:
-  a. no set up is done ( redshift, s3 buckets or jenkins jobs).
-  b. Job scheduling.
-  c. Code can be reused to load historical data. so, no separate code is written for the historical load.
-  d. Automation testing is not done for this. 
+  1. no set up is done ( redshift, s3 buckets or jenkins jobs).
+  2. Job scheduling.
+  3. Code can be reused to load historical data. so, no separate code is written for the historical load.
+  4. Automation testing is not done for this. 
   
  
   
