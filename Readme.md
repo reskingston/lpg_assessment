@@ -12,11 +12,11 @@ Task 3:
 For task 3, I have used python as programming language and  Redshift database. 
 
 The idea behind this is to 
-   a. use the Jenkins to run the python code at the desired interval (running the job every hour).
-   b. python code to extract data from google trends and load to raw schema in redshift.
-   c. Since LPG follow ELT, We will load the data to the database before transforming it. 
-   d. The sql insert statement is used to load the data from raw to bi schema. Raw schema has truncate and load tables. facts and dimensions are created in BI layer and it will be incremental load.
-   e. The same or different jenkins job can be used to run the sql statement (insert).
+   1. use the Jenkins to run the python code at the desired interval (running the job every hour).
+   2. python code to extract data from google trends and load to raw schema in redshift.
+   3. Since LPG follow ELT, We will load the data to the database before transforming it. 
+   4. The sql insert statement is used to load the data from raw to bi schema. Raw schema has truncate and load tables. facts and dimensions are created in BI layer and it will be incremental load.
+   5. The same or different jenkins job can be used to run the sql statement (insert).
 
 The load_google_trends_to_redshift.py does the following tasks:
   a. extracting the google trends data for interest over time and interest by region into csv files
