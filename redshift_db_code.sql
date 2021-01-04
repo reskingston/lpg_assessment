@@ -71,26 +71,26 @@ CONSTRAINT k_id_fk FOREIGN KEY (k_id) REFERENCES dw_bi.d_keyword );
 INSERT INTO dw_bi.f_gtrends_interest_over_time 
 WITH cte_kw AS (
 
-	SELECT trend_timestamp, 'elon_musk' AS kw_name, elon_musk as no_of_searches FROM dw_raw.gtrends_interest_over_time
+	SELECT trend_timestamp, 'Elon Musk' AS kw_name, elon_musk as no_of_searches FROM dw_raw.gtrends_interest_over_time
 
 	UNION ALL 
 
-	SELECT trend_timestamp, 'joe_biden' AS kw_name, joe_biden as no_of_searches FROM dw_raw.gtrends_interest_over_time
-
-	UNION ALL 
-
-
-	SELECT trend_timestamp, 'taylor_swift' AS kw_name, taylor_swift as no_of_searches FROM dw_raw.gtrends_interest_over_time
+	SELECT trend_timestamp, 'Joe Biden' AS kw_name, joe_biden as no_of_searches FROM dw_raw.gtrends_interest_over_time
 
 	UNION ALL 
 
 
-	SELECT trend_timestamp, 'godzilla' AS kw_name, godzilla as no_of_searches FROM dw_raw.gtrends_interest_over_time
+	SELECT trend_timestamp, 'Taylor Swift' AS kw_name, taylor_swift as no_of_searches FROM dw_raw.gtrends_interest_over_time
+
+	UNION ALL 
+
+
+	SELECT trend_timestamp, 'Godzilla' AS kw_name, godzilla as no_of_searches FROM dw_raw.gtrends_interest_over_time
 
 	UNION ALL
 
 
-	SELECT trend_timestamp, 'black_panther' AS kw_name, black_panther as no_of_searches FROM dw_raw.gtrends_interest_over_time
+	SELECT trend_timestamp, 'Black Panther' AS kw_name, black_panther as no_of_searches FROM dw_raw.gtrends_interest_over_time
 )
 
 SELECT 	trend_timestamp,
@@ -104,26 +104,26 @@ FROM cte_kw c JOIN dw_bi.d_keyword k ON k.k_name=c.kw_name;
 INSERT INTO dw_bi.f_gtrends_interest_by_region 
 WITH cte_kw AS (
 
-	SELECT data_refreshed_timestamp, country,'elon_musk' AS kw_name, elon_musk as no_of_searches FROM dw_raw.gtrends_interest_by_region
+	SELECT data_refreshed_timestamp, country,'Elon Musk' AS kw_name, elon_musk as no_of_searches FROM dw_raw.gtrends_interest_by_region
 
 	UNION ALL 
 
-	SELECT data_refreshed_timestamp, country, 'joe_biden' AS kw_name, joe_biden as no_of_searches FROM dw_raw.gtrends_interest_by_region
-
-	UNION ALL 
-
-
-	SELECT data_refreshed_timestamp, country, 'taylor_swift' AS kw_name, taylor_swift as no_of_searches FROM dw_raw.gtrends_interest_by_region
+	SELECT data_refreshed_timestamp, country, 'Joe Biden' AS kw_name, joe_biden as no_of_searches FROM dw_raw.gtrends_interest_by_region
 
 	UNION ALL 
 
 
-	SELECT data_refreshed_timestamp, country, 'godzilla' AS kw_name, godzilla as no_of_searches FROM dw_raw.gtrends_interest_by_region
+	SELECT data_refreshed_timestamp, country, 'Taylor Swift' AS kw_name, taylor_swift as no_of_searches FROM dw_raw.gtrends_interest_by_region
+
+	UNION ALL 
+
+
+	SELECT data_refreshed_timestamp, country, 'Godzilla' AS kw_name, godzilla as no_of_searches FROM dw_raw.gtrends_interest_by_region
 
 	UNION ALL
 
 
-	SELECT data_refreshed_timestamp, country, 'black_panther' AS kw_name, black_panther as no_of_searches FROM dw_raw.gtrends_interest_by_region
+	SELECT data_refreshed_timestamp, country, 'Black Panther' AS kw_name, black_panther as no_of_searches FROM dw_raw.gtrends_interest_by_region
 )
 
 SELECT 	data_refreshed_timestamp, -- we can bring in a date column from python instead of using this column as this may result in confusion if the files are loaded in a different day ( google trends extract didn't have date )
