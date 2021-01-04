@@ -32,6 +32,8 @@ Things not done as part of this:
   3. Code can be reused to load historical data. so, no separate code is written for the historical load.
   4. Automation testing is not done for this. 
   
+Note: The way the columns are handled in the insert statement in BI schema can be changed if we had to have more than 5 key words.
+  
  
   
 
